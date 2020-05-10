@@ -15,7 +15,6 @@
 }
 
 .container {
-  height: ;
   padding: 0 2rem;
 }
 
@@ -28,7 +27,7 @@
 
 .main {
   padding: 3rem;
-  background: #ecece0;
+  background: #fff;
 }
 
 .top-news-container {
@@ -36,7 +35,7 @@
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
   grid-template-rows: minmax(4rem, auto);
   gap: 1rem;
-
+  padding-bottom: 2rem;
   background: #fff;
 }
 
@@ -55,11 +54,10 @@
 
 .top-news-container .top-news:last-child {
   color: #1771ff;
-  background: #fff;
-  box-shadow: none;
+  background: #ececec;
 }
 
-.top-news-container .top-news:last-child h2 a {
+.top-news-container .top-news:last-child .top-news-title h2 a {
   color: #1771ff;
 }
 
