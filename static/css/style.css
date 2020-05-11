@@ -43,7 +43,6 @@ body {
   grid-template-columns: 4fr 2fr;
   gap: 3rem;
   padding: 3rem 0;
-  background: #fff;
 }
 
 .top-news-container {
@@ -52,7 +51,6 @@ body {
   grid-template-rows: minmax(4rem, auto);
   gap: 1rem;
   padding-bottom: 2rem;
-  background: #fff;
 }
 
 .top-news-container > .top-news {
@@ -182,6 +180,23 @@ body {
 /* ------- end SIDEBAR ------------ */
 
 /* * ----- DECK ------------------ */
+.news-container .news-filter ul {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.news-container .news-filter li {
+  padding-left: 1rem;
+}
+
+.news-container .news-filter a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #1797ff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
 
 /* ------- end DECK -------------- */
 
