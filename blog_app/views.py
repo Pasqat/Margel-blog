@@ -1,5 +1,6 @@
 from django.shortcuts import HttpResponse, get_object_or_404, render
 from .models import Article
+from .forms import ArticleForm
 
 # Create your views here.
 def index(request):
@@ -12,3 +13,16 @@ def latest(request):
 def read_article(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
     return render(request, 'blog_app/read.html', {'article':article})
+
+def new_article(request):
+    form = ArticleForm()
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            HttpResponce('ERROR INVALID FORM')
+
+    return render(request, 'blog_app/edit.html', {'form':form})
