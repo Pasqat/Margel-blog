@@ -25,7 +25,6 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-## TODO immagine in categoria
+
 ## TODO commenti agli articoli
-## TODO pin articoli da tenere in homepgae
 ## TODO Ricerche articoli per data o parloa chiave
