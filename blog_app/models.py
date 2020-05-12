@@ -15,6 +15,7 @@ class Tag(models.Model):
     
 class Article(models.Model):
     title = models.CharField(max_length=100)
+    summary = models.CharField(max_length=250, blank=True)
     content = models.TextField()
     image = models.ImageField(upload_to='article_pics', blank=True)
     pub_date = models.DateTimeField('date published')

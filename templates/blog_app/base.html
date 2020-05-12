@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margel Blog</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- JQUERY -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script defer src="../static/js/script.js"></script>
+</head>
+
+<body class="">
+    <header>
+        <!-- =================== NavBar ===================== -->
+        {% block navbar %}
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Margel Blog</a>
+
+            <div class="navbar-toggler ">
+                <div class="bar start"></div>
+                <div class="bar middle"></div>
+                <div class="bar end"></div>
+            </div>
+
+            <ul class="navbar-nav ">
+
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">Categorie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Archivio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About us</a>
+                </li>
+            </ul>
+
+        </nav>
+        {% endblock %}
+        <!-- =============== end Navbar ==================== -->
+    </header>
+
+    <div class="container">
+        <!-- ================== Main ======================== -->
+        <div class="wrapper-top-news">
+
+            <!-- ======================= Top News ================== -->
+            {% block topnews %}
+            {% if pin_articles %}
+                <div class="top-news-container">
+                    {% for pin in pin_articles %}
+                        <article class="top-news">
+                            <header class="top-news-header">
+                                <div class="top-news-title">
+                                    <div class="top-news-subhead">
+                                        <time datetime="2020-04-24">
+                                            {{pin.pub_date}} </time>
+                                    </div>
+                                    <h2>
+                                        <a href="#" class="read-srticle">{{pin.title}}</a>
+                                    </h2>
+                                </div>
+                            </header>
+                            <div class="top-news-meta">
+                                <div class="top-news-byline">
+                                    <div class="category-avatar">
+                                        <a href="#" class="category-name">
+                                            <img src="../static/images/curiosita_category.png" alt="curiosita category"
+                                                class="avatar" height="80">
+                                        </a>
+                                    </div>
+                                    <div class="category-name-area">
+                                        <a href="#" class="category-name">{{pin.category}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endblock %}
+            {% block main_contnent %}
+            
+            {% endblock %}
+            <!-- ================== end Main =================== -->
+
+        </div>
+
+
+
+
+        <!-- ===============end Wrapper ====================== -->
+
+    </div>
+    <!-- ================== end Content ==================== -->
+
+    <!-- ================== Footre ===================== -->
+    <footer class="footer">
+        <div>
+            &copy; 2020 Your Knowledge by Pasquale & Giovanni 📰
+        </div>
+    </footer>
+    <!-- ================== end Footer ================= -->
+</body>
+
+</html>
