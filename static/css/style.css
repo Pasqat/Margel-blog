@@ -279,13 +279,12 @@ h6 {
   overflow: hidden;
 }
 
-.background-image {
+.news-deck .card .image-data .background-image {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background: url("https://images.ctfassets.net/aq13lwl6616q/3LDhCeZ7TDExaOJ1dHQf4F/7c94f0b51da581a826a42c6e90acc550/Python_Monthly_April_2020.png?w=300&h=225&q=50&fm=webp");
   background-size: cover;
   z-index: -1;
   transition: transform 5s;
