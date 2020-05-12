@@ -69,9 +69,6 @@ h6 {
   color: #1771ff;
   text-transform: uppercase;
   font-weight: 500;
-  transition: all 650ms ease;
-}
-.navbar-nav .nav-link:hover {
 }
 
 /* ---- end TOP BAR ------- */
