@@ -123,10 +123,13 @@ h6 {
 .top-news-container .top-news:first-child .top-news-title h2 a {
   color: #1771ff;
 }
+.top-news-container .top-news .top-news-title .top-news-subhead {
+  text-align: right;
+}
 
 .top-news-container .top-news .top-news-title .top-news-subhead > time {
   color: hsl(217, 100%, 90%);
-  margin-left: 30px;
+  font-size: 12px;
 }
 
 .top-news-container
