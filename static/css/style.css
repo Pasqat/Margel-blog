@@ -76,9 +76,6 @@ h6 {
   font-weight: bold;
 }
 
-.nav-item {
-}
-
 .navbar-nav .nav-link {
   text-decoration: none;
   color: #1771ff;
@@ -94,9 +91,6 @@ h6 {
 }
 
 .main {
-  display: grid;
-  grid-template-columns: 4fr 2fr;
-  gap: 4rem;
   padding: 4rem 0;
 }
 
@@ -221,7 +215,9 @@ h6 {
 
 /* * ------- SIDEBAR ------------ */
 .sidebar {
+  display: none;
   padding: 1.6rem;
+  margin-top: 2rem;
 }
 
 .search-section {
@@ -366,6 +362,7 @@ h6 {
 .card .category a {
   background: var(--gradient-color);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   position: relative;
 }
@@ -559,5 +556,16 @@ h6 {
 
   .post-data {
     flex-basis: 60%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .main {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 4rem;
+  }
+  .sidebar {
+    display: unset;
   }
 }
