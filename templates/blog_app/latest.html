@@ -22,31 +22,26 @@
         <div class="news-deck">
             {% if latest_articles %}
                 {% for article in latest_articles %}
-                    <div class="news-card">
-                        <div class="img-news">
-                            <img src="https://images.ctfassets.net/aq13lwl6616q/YuaneJWqNUgeWfVLVXmeQ/71f5803d1399f921d65bef7b1d3ff33a/Web_Developer_Monthly_April_2020.png?w=300&h=225&q=50&fm=webp"
-                                alt="">
-                        </div>
-                        <div class="news-content">
-                            <div class="news-title">
-                                <h2>{{article.title}}</h2>
-                            </div>
-                            <div class="news-summary">
-                                {{article.summary}}
-                            </div>
-                            <div class="news-footer">
-                                <div class="news-time">
-                                    {{article.pub_date}}
-                                </div>
-                                <div class="news-time-reading">
-                                    10 min di lettura
-                                </div>
-                                <div class="news-category">
-                                    <h4>{{article.category}}</h4>
-                                </div>
-                            </div>
+                <div class="card">
+                    <div class="image-data">
+                        <div class="background-image"></div>
+                        <div class="publication-details">
+                            <span class="date">{{article.pub_date}}</span>
+                            <span class="time-reading">10 minuti di lettura</span>
                         </div>
                     </div>
+                    <div class="post-data">
+                        <h3 class="title"><a href="#">{{article.title}}</a> </h3>
+                        <p class="description">
+                            {{article.summary}}
+                        </p>
+                        <div class="category">
+                            <h4>
+                                <a href=#"">{{article.category}}</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
             {% else %}
                 <h1>No Articles Found</h1>
