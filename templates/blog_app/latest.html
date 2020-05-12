@@ -1,10 +1,60 @@
-{% if latest_articles %}
-    <h1>Latest Articles</h1>
-    <ul>
-        {% for article in latest_articles %}
-            <li><a href="{% url 'blog_app:read' article.id %}">{{article.title}}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h1>No Articles Found</h1>
-{% endif %}
+{% extends 'blog_app/base.html' %}
+
+
+{% block main_contnent %}
+<div class="main">
+
+    <!-- ======================= end Top News ================== -->
+    <div class="news-container">
+        <div class="news-filter">
+            <ul>
+                <li>
+                    <a href="#" class="filter">Recenti</a>
+                </li>
+                <li>
+                    <a href="#" class="filter">Popolari</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ================== News Deck ======================== -->
+        
+        <div class="news-deck">
+            {% if latest_articles %}
+                {% for article in latest_articles %}
+                    <div class="news-card">
+                        <div class="img-news">
+                            <img src="https://images.ctfassets.net/aq13lwl6616q/YuaneJWqNUgeWfVLVXmeQ/71f5803d1399f921d65bef7b1d3ff33a/Web_Developer_Monthly_April_2020.png?w=300&h=225&q=50&fm=webp"
+                                alt="">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-title">
+                                <h2>{{article.title}}</h2>
+                            </div>
+                            <div class="news-summary">
+                                {{article.summary}}
+                            </div>
+                            <div class="news-footer">
+                                <div class="news-time">
+                                    {{article.pub_date}}
+                                </div>
+                                <div class="news-time-reading">
+                                    10 min di lettura
+                                </div>
+                                <div class="news-category">
+                                    <h4>{{article.category}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h1>No Articles Found</h1>
+            {% endif %}
+            
+            
+        </div>
+        <!-- ================== end News Deck ======================== -->
+    </div>
+</div>
+{% endblock %}
