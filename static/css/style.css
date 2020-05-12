@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* font-family: 'DM Mono', monospace;
+font-family: 'Montserrat', sans-serif; */
+
 * {
   padding: 0;
   margin: 0;
@@ -9,7 +14,7 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -22,9 +27,20 @@ body.open {
   overflow: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "DM Mono", monospace;
+}
+
 /* * ---- TOP BAR ------- */
 
 .navbar {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 2px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -52,7 +68,7 @@ body.open {
   text-decoration: none;
   color: #1771ff;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 500;
   transition: all 650ms ease;
 }
 .navbar-nav .nav-link:hover {
@@ -87,7 +103,7 @@ body.open {
   color: #ececec;
   padding: 20px;
   border-radius: 10px;
-  background: #1771ff;
+  background: linear-gradient(200deg, #1771ff, rgb(12, 86, 129));
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   width: auto;
   min-height: 150px;
@@ -95,13 +111,13 @@ body.open {
 }
 
 .top-news-container .top-news:hover {
-  scale: 1.05;
+  transform: scale(1.05);
   box-shadow: 0 6px 15px 0 hsla(0, 0%, 0%, 0.2);
 }
 
 .top-news-container .top-news:first-child {
   color: #1771ff;
-  background: rgb(246, 246, 246);
+  background: linear-gradient(200deg, #fff, rgb(246, 246, 246));
 }
 
 .top-news-container .top-news:first-child .top-news-title h2 a {
@@ -172,16 +188,15 @@ body.open {
 }
 
 .top-news-container .top-news .top-news-meta .top-news-byline a {
-  text-transform: uppercase;
-  font-weight: bold;
+  /* text-transform: uppercase; */
+  font-weight: 500;
   text-decoration: none;
   color: #fff;
   font-size: 0.9rem;
 }
 
 .top-news-container .top-news:first-child .top-news-meta .top-news-byline a {
-  text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: none;
   color: #1771ff;
   font-size: 0.9rem;
@@ -239,6 +254,10 @@ body.open {
   box-shadow: 0 6px 10px 1px hsla(0, 0%, 0%, 0.2);
 }
 
+.news-deck .news-card:hover {
+  box-shadow: 0 6px 15px 1px hsla(0, 0%, 0%, 0.2);
+}
+
 .news-deck .news-card img {
   height: 100%;
   width: auto;
@@ -278,6 +297,8 @@ body.open {
   bottom: 0;
   padding: 1rem;
   background: #1771ff;
+  color: #ececec;
+  font-weight: 500;
 }
 
 /* ------ FOOTER ------------ */
@@ -360,6 +381,10 @@ body.open {
   .navbar .nav-link {
     color: #fff;
     font-size: 2rem;
+  }
+
+  .sidebar {
+    display: none;
   }
 }
 
