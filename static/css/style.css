@@ -117,7 +117,7 @@ h6 {
 
 .top-news-container .top-news:first-child {
   color: #1771ff;
-  background: linear-gradient(200deg, #fff, rgb(246, 246, 246));
+  background: linear-gradient(200deg, #fff, rgb(222, 235, 255));
 }
 
 .top-news-container .top-news:first-child .top-news-title h2 a {
@@ -381,9 +381,17 @@ h6 {
     top: 0;
   }
 
+  .navbar .nav-item {
+    transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+  }
+
   .navbar .nav-link {
     color: #fff;
     font-size: 2rem;
+  }
+
+  .navbar .nav-item:hover {
+    transform: translateX(1rem);
   }
 
   .sidebar {
