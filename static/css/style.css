@@ -3,28 +3,43 @@
 /* font-family: 'DM Mono', monospace;
 font-family: 'Montserrat', sans-serif; */
 
+:root {
+  --gradient-color: linear-gradient(200deg, #1771ff, rgba(56, 153, 209, 0.9));
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.container {
-  padding: 0 7rem;
+::before,
+::after {
+  box-sizing: border-box;
 }
 
 html {
   font-family: "Montserrat", sans-serif;
+  font-size: 10px;
 }
 
 body {
+  font-size: 1.6rem;
   width: 100%;
   height: 100%;
   background-color: #ececec;
 }
 
+.container {
+  padding: 0 2rem;
+}
+
 body.open {
   overflow: hidden;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1,
@@ -75,22 +90,22 @@ h6 {
 
 /* * ----- TOP NEWS -------- */
 .wrapper-top-news {
-  padding: 5rem 0;
+  padding: 10rem 0;
 }
 
 .main {
   display: grid;
   grid-template-columns: 4fr 2fr;
-  gap: 3rem;
-  padding: 3rem 0;
+  gap: 4rem;
+  padding: 4rem 0;
 }
 
 .top-news-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
-  grid-template-rows: minmax(4rem, auto);
-  gap: 1rem;
-  padding-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  grid-template-rows: minmax(5rem, auto);
+  gap: 1.6rem;
+  padding-bottom: 3.2rem;
 }
 
 .top-news-container > .top-news {
@@ -100,7 +115,7 @@ h6 {
   color: #ececec;
   padding: 20px;
   border-radius: 10px;
-  background: linear-gradient(200deg, #1771ff, rgb(12, 86, 129));
+  background: var(--gradient-color);
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   width: auto;
   min-height: 150px;
@@ -154,8 +169,8 @@ h6 {
 }
 
 .top-news-container .top-news .top-news-title h2 {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 3.2rem;
 }
 
 .top-news-container .top-news .top-news-title h2 a {
@@ -192,28 +207,28 @@ h6 {
   font-weight: 500;
   text-decoration: none;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
 }
 
 .top-news-container .top-news:first-child .top-news-meta .top-news-byline a {
   font-weight: 500;
   text-decoration: none;
   color: #1771ff;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
 }
 
 /* ----- end TOP NEWS -------- */
 
 /* * ------- SIDEBAR ------------ */
 .sidebar {
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .search-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1.6rem;
   border-left: 2px solid #1771ff;
   border-right: 2px solid #1771ff;
   border-radius: 3%;
@@ -222,6 +237,10 @@ h6 {
 /* ------- end SIDEBAR ------------ */
 
 /* * ----- DECK ------------------ */
+.news-container .news-filter {
+  margin-bottom: 2rem;
+}
+
 .news-container .news-filter ul {
   display: flex;
   list-style: none;
@@ -229,73 +248,152 @@ h6 {
 }
 
 .news-container .news-filter li {
-  padding-left: 1rem;
+  padding-left: 1.6rem;
 }
 
 .news-container .news-filter a {
   text-decoration: none;
   text-transform: uppercase;
   color: #1797ff;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   font-weight: bold;
+}
+
+.news-container .news-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ------- end DECK -------------- */
 
-/* * ------ CARD --------------- */
+/* * CARD JULIO CODE TUTORIAL */
 
-.news-deck .news-card {
+.card {
   display: flex;
-  width: 100%;
-  max-height: 198px;
-  padding: 0;
-  margin: 2rem 0;
-  background-color: #fff;
+  flex-direction: column;
+  background-color: white;
   box-shadow: 0 6px 10px 1px hsla(0, 0%, 0%, 0.2);
 }
 
-.news-deck .news-card:hover {
-  box-shadow: 0 6px 15px 1px hsla(0, 0%, 0%, 0.2);
+.image-data {
+  height: 25rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.news-deck .news-card img {
+.background-image {
+  width: 100%;
   height: 100%;
-  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("https://images.ctfassets.net/aq13lwl6616q/3LDhCeZ7TDExaOJ1dHQf4F/7c94f0b51da581a826a42c6e90acc550/Python_Monthly_April_2020.png?w=300&h=225&q=50&fm=webp");
+  background-size: cover;
+  z-index: -1;
+  transition: transform 5s;
 }
 
-.news-deck .news-card .news-content {
-  padding: 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+.card:hover .background-image {
+  transform: scale(1.5);
 }
 
-.news-deck .news-card .news-content .news-title h2 {
-  font-size: 1.2rem;
-  padding-bottom: 0.5rem;
+.publication-details {
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #cbe7ff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
 }
 
-.news-deck .news-card .news-content .news-footer {
-  display: flex;
-  font-size: 0.8rem;
+.card .publication-details .date {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  transition: all 0.5s;
 }
 
-.news-deck .news-card .news-content .news-footer .news-time-reading {
-  margin-left: 1rem;
+.card .publication-details .time-reading {
+  display: block;
 }
 
-.news-deck .news-card .news-content .news-footer .news-category {
-  margin-left: auto;
+.card .post-data {
+  background-color: #fff;
+  padding: 2rem 3rem;
+  position: relative;
+}
+
+.card .title {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin: 0 0 2rem 0;
+}
+
+.card .title a {
   color: #1771ff;
 }
 
-/*  ------ end CARD ----------- */
+.card .description {
+  position: relative;
+}
+
+.card .description::first-letter {
+  margin-left: 1rem;
+}
+
+.card .description::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.5rem;
+  height: 2rem;
+  background: var(--gradient-color);
+  border-radius: 2rem;
+}
+
+.card .category {
+  text-align: right;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.card .category a {
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.card .category a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.card .category a:hover::before {
+  transform: scaleX(1);
+}
+
+/* end CARD JULIO CODE TUTORIAL */
 
 /* * ------ FOOTER ------------ */
 .footer {
   text-align: center;
   bottom: 0;
-  padding: 1rem;
+  padding: 1.6rem;
   background: #1771ff;
   color: #ececec;
   font-weight: 500;
@@ -307,12 +405,12 @@ h6 {
 
 @media screen and (max-width: 600px) {
   .navbar {
-    padding: 1rem 2rem;
+    padding: 1.6rem 3.2rem;
   }
 
   .navbar .navbar-toggler {
     position: absolute;
-    top: 0.5rem;
+    top: 1.6rem;
     right: 2rem;
     width: 2.5rem;
     height: 2rem;
@@ -327,7 +425,7 @@ h6 {
     height: 2px;
     width: 100%;
     background-color: #1771ff;
-    border-radius: 0.8rem;
+    border-radius: 1.2rem;
   }
 
   .bar.start {
@@ -370,7 +468,7 @@ h6 {
     height: 100vh;
     top: -100vh;
     z-index: 50;
-    background: linear-gradient(37deg, #1771ff, rgb(12, 86, 129));
+    background: var(--gradient-color);
     transition: all 1s cubic-bezier(1, 0, 0, 1);
   }
 
@@ -384,11 +482,11 @@ h6 {
 
   .navbar .nav-link {
     color: #fff;
-    font-size: 2rem;
+    font-size: 3.2rem;
   }
 
   .navbar .nav-item:hover {
-    transform: translateX(1rem);
+    transform: translateX(1.6rem);
   }
 
   .sidebar {
@@ -397,9 +495,12 @@ h6 {
 }
 
 @media screen and (min-width: 600px) {
+  .container {
+    padding: 0 9rem;
+  }
   .navbar {
     align-items: center;
-    padding: 1rem 7rem;
+    padding: 2rem 9rem;
   }
 
   .navbar-nav {
@@ -408,17 +509,55 @@ h6 {
     list-style: none;
   }
 
-  .navbar .navbar-brand {
-  }
-
   .nav-item {
     padding-left: 2rem;
   }
 
   .navbar-nav .nav-link {
-    padding-bottom: 1rem;
+    padding-bottom: 1.8rem;
   }
   .navbar-nav .nav-link:hover {
     border-bottom: 3px solid #ff9a17;
+  }
+
+  .card {
+    flex-direction: row;
+    max-width: 75rem;
+  }
+
+  .image-data {
+    flex-basis: 40%;
+    height: unset;
+  }
+
+  .publication-details {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .card:hover .publication-details {
+    opacity: 1;
+  }
+
+  .card .publication-details .date {
+    transform: translateY(-3rem);
+    opacity: 0;
+    transition-delay: 0.3s;
+  }
+
+  .card .time-reading {
+    transform: translateY(3rem);
+    opacity: 0;
+    transition: all 0.5s 0.3s;
+  }
+
+  .card:hover .date,
+  .card:hover .time-reading {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .post-data {
+    flex-basis: 60%;
   }
 }
