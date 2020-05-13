@@ -6,8 +6,9 @@ font-family: 'Montserrat', sans-serif; */
 :root {
   --text: rgb(27, 27, 27);
   --white: #fff;
-  --white2: #ececec;
-  --white3: #dfdede;
+  --grey: #ececec;
+  --grey2: #dfdede;
+  --grey3: rgb(129, 129, 129);
   --azzurro: #cbe7ff;
   --azzurro2: rgba(56, 153, 209, 0.7);
   --azzurro3: #1797ff;
@@ -26,8 +27,8 @@ font-family: 'Montserrat', sans-serif; */
 .dark {
   --text: #ececec;
   --white: rgb(9, 15, 42);
-  --white2: #0e1a3b;
-  --white3: #0e4270;
+  --grey: #0e1a3b;
+  --grey2: #0e4270;
   --azzurro: #0e4270;
   --azzurro2: rgba(23, 61, 83, 0.7);
   --azzurro3: #6096c2;
@@ -66,7 +67,7 @@ body {
   font-size: 1.6rem;
   width: 100%;
   height: 100%;
-  background-color: var(--white2);
+  background-color: var(--grey);
 }
 
 p {
@@ -102,6 +103,15 @@ h4,
 h5,
 h6 {
   font-family: "DM Mono", monospace;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+h3 {
+  font-weight: 500;
 }
 
 /* * ---- TOP BAR ------- */
@@ -143,10 +153,6 @@ h6 {
   padding: 10rem 0;
 }
 
-.main {
-  padding: 4rem 0;
-}
-
 .top-news-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(15rem, 50%), 1fr));
@@ -159,7 +165,7 @@ h6 {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: var(--white2);
+  color: var(--grey);
   padding: 20px;
   border-radius: 10px;
   background: var(--gradient-azzurro);
@@ -423,13 +429,71 @@ h6 {
 
 /* end CARD NEWS */
 
+/* * Article Reading */
+
+.reading-container {
+  margin: 8rem auto;
+  display: block;
+}
+
+.header-reading {
+  padding-bottom: 5rem;
+}
+
+.header-reading h1 {
+  font-weight: 400;
+  color: var(--text);
+}
+
+.header-reading .sub-header {
+  display: flex;
+  align-items: center;
+  margin: 2rem 3rem 2rem 0;
+}
+
+.sub-header img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin-right: 2rem;
+}
+
+.sub-header .category-name {
+  font-weight: 500;
+  color: var(--top-title);
+}
+
+.sub-header-date {
+  color: var(--grey3);
+}
+
+.image-reading {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5rem;
+}
+
+.image-reading img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 1;
+  transition: opacity 500ms ease 0s;
+}
+/* end Article Reading */
+
 /* * ------ FOOTER ------------ */
 
 footer {
   text-align: center;
   bottom: 0;
   background: var(--footer);
-  color: var(--white2);
+  color: var(--grey);
   font-weight: 500;
 }
 
@@ -563,7 +627,7 @@ footer {
 
   .open .bar.start {
     transform: rotate(45deg);
-    background: var(--white2);
+    background: var(--grey);
   }
 
   .bar.end {
@@ -573,7 +637,7 @@ footer {
 
   .open .bar.end {
     transform: rotate(-45deg);
-    background: var(--white2);
+    background: var(--grey);
   }
 
   .bar.middle {
@@ -582,7 +646,7 @@ footer {
 
   .open .bar.middle {
     transform: translateX(5rem);
-    background: var(--white2);
+    background: var(--grey);
   }
 
   .navbar-nav {
@@ -629,6 +693,14 @@ footer {
     display: none;
   }
 
+  .reading-container {
+    width: 90%;
+  }
+
+  .image-reading {
+    height: 20rem;
+  }
+
   footer {
     padding: 10rem 1rem 2rem 1rem;
   }
@@ -642,7 +714,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 769px) {
   .container {
     padding: 0 9rem;
   }
@@ -713,6 +785,14 @@ footer {
     flex-basis: 60%;
   }
 
+  .image-reading {
+    height: 35rem;
+  }
+
+  .reading-container {
+    width: 80%;
+  }
+
   footer {
     padding: 3rem;
   }
@@ -747,7 +827,7 @@ footer {
     height: 2rem;
     width: 2rem;
     margin: 0 1rem 0 1.5rem;
-    color: var(--white3);
+    color: var(--grey2);
   }
 
   .sidebar input[type="text"] {
@@ -764,7 +844,7 @@ footer {
   }
 
   .sidebar-title {
-    border-bottom: 1px solid var(--white3);
+    border-bottom: 1px solid var(--grey2);
   }
 
   .tags-section {
@@ -782,5 +862,11 @@ footer {
 
   .tag a:hover {
     color: var(--top-title);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .reading-container {
+    width: 60%;
   }
 }
