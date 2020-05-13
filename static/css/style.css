@@ -7,6 +7,7 @@ font-family: 'Montserrat', sans-serif; */
   --text: rgb(27, 27, 27);
   --white: #fff;
   --white2: #ececec;
+  --white3: #dfdede;
   --azzurro: #cbe7ff;
   --azzurro2: rgba(56, 153, 209, 0.7);
   --azzurro3: #1797ff;
@@ -26,12 +27,13 @@ font-family: 'Montserrat', sans-serif; */
   --text: #ececec;
   --white: rgb(9, 15, 42);
   --white2: #0e1a3b;
+  --white3: #0e4270;
   --azzurro: #0e4270;
   --azzurro2: rgba(23, 61, 83, 0.7);
   --azzurro3: #6096c2;
   --azzurro4: #4975b4;
   --azzurro5: #b2c9f0;
-  --accent: #ff9a17;
+  --accent: #f717ff;
   --gradient-azzurro: linear-gradient(
     200deg,
     rgb(9, 15, 42),
@@ -263,21 +265,8 @@ h6 {
 /* ----- end TOP NEWS -------- */
 
 /* * ------- SIDEBAR ------------ */
-.sidebar {
-  display: none;
-  padding: 1.6rem;
-  margin-top: 2rem;
-}
 
-.search-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.6rem;
-  border-left: 2px solid var(--azzurro4);
-  border-right: 2px solid var(--azzurro4);
-  border-radius: 3%;
-}
+/* ! SEE MEDIA QUERIES */
 
 /* ------- end SIDEBAR ------------ */
 
@@ -312,7 +301,7 @@ h6 {
 
 /* ------- end DECK -------------- */
 
-/* * CARD JULIO CODE TUTORIAL */
+/* * CARD NEWS*/
 
 .card {
   display: flex;
@@ -431,7 +420,7 @@ h6 {
   transform: scaleX(1);
 }
 
-/* end CARD JULIO CODE TUTORIAL */
+/* end CARD NEWS */
 
 /* * ------ FOOTER ------------ */
 
@@ -719,7 +708,63 @@ footer {
     grid-template-columns: 4fr 2fr;
     gap: 4rem;
   }
+
   .sidebar {
-    display: unset;
+    padding: 1.6rem;
+    margin-top: 2rem;
+  }
+
+  .search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem;
+  }
+
+  .search-section form {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-section .searchIcon i {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 1rem 0 1.5rem;
+    color: var(--white3);
+  }
+
+  .sidebar input[type="text"] {
+    background: none;
+    height: 40px;
+    border-style: none;
+  }
+
+  .sidebar-title h4 {
+    padding: 0 0.5rem 1rem 0;
+    position: relative;
+    font-weight: 500;
+    color: var(--top-title);
+  }
+
+  .sidebar-title {
+    border-bottom: 1px solid var(--white3);
+  }
+
+  .tags-section {
+    display: inline-flex;
+    padding: 1rem;
+  }
+
+  .tag {
+    padding: 1rem;
+  }
+
+  .tag a {
+    font-weight: 500;
+  }
+
+  .tag a:hover {
+    color: var(--top-title);
   }
 }
