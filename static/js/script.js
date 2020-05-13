@@ -13,4 +13,9 @@ $(document).ready(function () {
       1000
     );
   });
+
+  $(".theme-toggler li").on("click", function () {
+    $(this).toggleClass("active");
+    $("body").toggleClass("dark");
+  });
 });
