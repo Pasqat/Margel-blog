@@ -4,4 +4,13 @@ $(document).ready(function () {
     $(".navbar-nav").toggleClass("open");
     $("body").toggleClass("open");
   });
+
+  $("#up").on("click", function () {
+    $("html, body").animate(
+      {
+        scrollTop: 0,
+      },
+      1000
+    );
+  });
 });
