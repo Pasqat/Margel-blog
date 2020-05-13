@@ -823,9 +823,7 @@ footer {
     align-items: center;
   }
 
-  .search-section .searchIcon i {
-    height: 2rem;
-    width: 2rem;
+  .search-section .searchIcon svg {
     margin: 0 1rem 0 1.5rem;
     color: var(--grey2);
   }
