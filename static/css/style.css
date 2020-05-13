@@ -78,6 +78,7 @@ p {
 }
 
 .container {
+  min-height: 88.4vh;
   padding: 0 2rem;
 }
 
@@ -427,7 +428,6 @@ h6 {
 footer {
   text-align: center;
   bottom: 0;
-
   background: var(--footer);
   color: var(--white2);
   font-weight: 500;
@@ -435,6 +435,7 @@ footer {
 
 .copyright {
   position: relative;
+  bottom: 0;
 }
 
 .up {
