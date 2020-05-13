@@ -22,7 +22,7 @@ font-family: 'Montserrat', sans-serif; */
   --footer: #1771ff;
 }
 
-/* TODO trovare la giusta palette, aggiungere colori al testo */
+/* TODO trovare la giusta palette */
 .dark {
   --text: #ececec;
   --white: rgb(9, 15, 42);
@@ -306,7 +306,7 @@ h6 {
 .card {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0 6px 10px 1px hsla(0, 0%, 0%, 0.2);
 }
 
@@ -424,11 +424,10 @@ h6 {
 
 /* * ------ FOOTER ------------ */
 
-/* TODO responsive? I tasti si sovrappongono al testo */
 footer {
   text-align: center;
   bottom: 0;
-  padding: 3rem;
+
   background: var(--footer);
   color: var(--white2);
   font-weight: 500;
@@ -628,9 +627,21 @@ footer {
   .sidebar {
     display: none;
   }
+
+  footer {
+    padding: 10rem 1rem 2rem 1rem;
+  }
+
+  .up {
+    top: 2rem;
+  }
+
+  .theme-toggler {
+    top: 2rem;
+  }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 767px) {
   .container {
     padding: 0 9rem;
   }
@@ -699,6 +710,10 @@ footer {
 
   .post-data {
     flex-basis: 60%;
+  }
+
+  footer {
+    padding: 3rem;
   }
 }
 
