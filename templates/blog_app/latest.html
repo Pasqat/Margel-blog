@@ -24,14 +24,14 @@
                 {% for article in latest_articles %}
                 <div class="card">
                     <div class="image-data">
-                        <div class="background-image"></div>
+                        <div class="background-image" style="  background: url({{article.image.url}}) no-repeat center; background-size: cover;"></div>
                         <div class="publication-details">
                             <span class="date">{{article.pub_date}}</span>
                             <span class="time-reading">10 minuti di lettura</span>
                         </div>
                     </div>
                     <div class="post-data">
-                        <h3 class="title"><a href="#">{{article.title}}</a> </h3>
+                        <h3 class="title"><a href="{% url 'blog_app:read' article_id=article.id %}">{{article.title}}</a> </h3>
                         <p class="description">
                             {{article.summary}}
                         </p>

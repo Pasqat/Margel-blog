@@ -20,7 +20,7 @@
         <!-- =================== NavBar ===================== -->
         {% block navbar %}
         <nav class="navbar">
-            <a href="#" class="navbar-brand">Margel Blog</a>
+            <a href="{%url 'blog_app:index'%}" class="navbar-brand">Margel Blog</a>
 
             <div class="navbar-toggler ">
                 <div class="bar start"></div>
@@ -31,7 +31,7 @@
             <ul class="navbar-nav ">
 
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="{%url 'blog_app:index'%}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item ">
                     <a href="#" class="nav-link">Categorie</a>
@@ -66,7 +66,7 @@
                                             {{pin.pub_date}} </time>
                                     </div>
                                     <h2>
-                                        <a href="#" class="read-srticle">{{pin.title}}</a>
+                                        <a href="{% url 'blog_app:read' article_id=pin.id %}" class="read-srticle">{{pin.title}}</a>
                                     </h2>
                                 </div>
                             </header>
@@ -74,7 +74,7 @@
                                 <div class="top-news-byline">
                                     <div class="category-avatar">
                                         <a href="#" class="category-name">
-                                            <img src="../static/images/curiosita_category.png" alt="curiosita category"
+                                            <img src="{{pin.category.image.url}}" alt="curiosita category"
                                                 class="avatar" height="80">
                                         </a>
                                     </div>
