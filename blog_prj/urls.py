@@ -23,4 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog_app.urls')),
     path('', views.index, name ='index'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # ! questo sistema non va bene in deployment
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #FIXME ! questo sistema non va bene in deployment
