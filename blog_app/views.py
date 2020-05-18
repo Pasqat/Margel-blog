@@ -64,7 +64,7 @@ def add_comment_to_article(request, pk):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=False) # ! capire cosa fa commit di preciso
+            comment = form.save(commit=False) # ! capire cosa fa commit di preciso # TODO leggi qui https://www.tutlane.com/tutorial/sqlite/sqlite-transactions-begin-commit-rollback
             comment.article = article
             comment.save()
             return redirect('article_detail', pk=article.pk)
