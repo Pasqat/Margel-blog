@@ -34,7 +34,6 @@
 
             <ul class="navbar-nav ">
 
-                <li class="nav-item active"><a href="{%url 'blog_app:article_list'%}" class="nav-link">Home</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'blog_app:article_new' %}">New Post</a></li>
                     <li><a href="{% url 'blog_app:article_draft_list' %}">Drafts</a></li>
