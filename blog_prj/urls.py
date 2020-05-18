@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as a_views
 from django.urls import path, include
 from blog_app import views
 from django.conf import settings
@@ -22,5 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog_app.urls')),
-    path('', views.index, name ='index'),
+    path('', views.ArticleListView.as_view(), name ='index'),
+    path('accounts/login/', a_views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', a_views.LogoutView.as_view(), name='logout', kwargs={'next_page':'/'})
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #FIXME ! questo sistema non va bene in deployment
