@@ -16,7 +16,7 @@ class ArticleListView(ListView):
 
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
-        context['pin_articles'] = get_list_or_404(Article, pin=True)
+        context['pin_articles'] = get_list_or_404(Article, pin=True, pub_date__isnull=False)
         return context
 
     def get_queryset(self):
@@ -53,7 +53,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 def article_publish(request,pk):
     article = get_object_or_404(Article, pk=pk)
     article.publish()
-    return redirect('article_detail', pk=pk)
+    return redirect('blog_app:article_detail', pk=pk)
 
 ##########################################################
 #-------------------------COMMENTI-----------------------#
@@ -67,20 +67,20 @@ def add_comment_to_article(request, pk):
             comment = form.save(commit=False) # ! capire cosa fa commit di preciso
             comment.article = article
             comment.save()
-            return redirect('article_detail', pk=article.pk)
-        else:
-            form = CommentForm()
+            return redirect('blog_app:article_detail', pk=article.pk)
+    else:
+        form = CommentForm()
     return render(request, 'blog_app/comment_form.html', {'form':form})
 
 @login_required
 def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
-    return redirect('article_detail', pk = comment.article.pk)
+    return redirect('blog_app:article_detail', pk = comment.article.pk)
 
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     article_pk = comment.article.pk
     comment.delete()
-    return redirect('article_detail', pk = article_pk)
+    return redirect('blog_app:article_detail', pk = article_pk)

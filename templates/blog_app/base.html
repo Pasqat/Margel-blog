@@ -24,7 +24,7 @@
         <!-- =================== NavBar ===================== -->
         {% block navbar %}
         <nav class="navbar">
-            <a href="{%url 'blog_app:index'%}" class="navbar-brand">Margel Blog</a>
+            <a href="{%url 'blog_app:article_list'%}" class="navbar-brand">Margel Blog</a>
 
             <div class="navbar-toggler ">
                 <div class="bar start"></div>
@@ -36,8 +36,8 @@
 
                 <li class="nav-item active"><a href="{%url 'blog_app:article_list'%}" class="nav-link">Home</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'article_new' %}">New Post</a></li>
-                    <li><a href="{% url 'article_draft_list' %}">Drafts</a></li>
+                    <li><a href="{% url 'blog_app:article_new' %}">New Post</a></li>
+                    <li><a href="{% url 'blog_app:article_draft_list' %}">Drafts</a></li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                     <li><a>Welcome: {{user.username}}</a></li>
                 {% else %}
@@ -67,7 +67,7 @@
                                             {{pin.pub_date}} </time>
                                     </div>
                                     <h2>
-                                        <a href="{% url 'blog_app:read' article_id=pin.id %}" class="read-srticle">{{pin.title}}</a>
+                                        <a href="{% url 'blog_app:article_detail' pk=pin.pk %}" class="read-srticle">{{pin.title}}</a>
                                     </h2>
                                 </div>
                             </header>
@@ -89,7 +89,7 @@
                 </div>
             {% endif %}
             {% endblock %}
-            {% block main_contnent %}
+            {% block main_content %}
             
             {% endblock %}
             <!-- ================== end Main =================== -->
