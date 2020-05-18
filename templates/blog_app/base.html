@@ -11,6 +11,9 @@
     <!-- JQUERY -->
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/05680d0362.js" crossorigin="anonymous"></script>
+
     <!-- Custom JavaScript -->
     <script defer src="{% static 'js/script.js' %}"></script>
 
@@ -19,7 +22,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 </head>
 
-<body class="">
+<body class="light">
     <header>
         <!-- =================== NavBar ===================== -->
         {% block navbar %}
@@ -35,12 +38,12 @@
             <ul class="navbar-nav ">
 
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'blog_app:article_new' %}">New Post</a></li>
-                    <li><a href="{% url 'blog_app:article_draft_list' %}">Drafts</a></li>
-                    <li><a href="{% url 'logout' %}">Log Out</a></li>
-                    <li><a>Welcome: {{user.username}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_app:article_new' %}">New Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_app:article_draft_list' %}">Drafts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+                    <li class="nav-item">Welcome: {{user.username}}</li>
                 {% else %}
-                    <li><a class="nav navbar-right" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                 {% endif %}
             </ul>
 
@@ -51,7 +54,7 @@
 
     <div class="container">
         <!-- ================== Main ======================== -->
-        <div class="wrapper-top-news">
+        <div class="wrapper">
 
             <!-- ======================= Top News ================== -->
             {% block topnews %}
@@ -63,10 +66,10 @@
                                 <div class="top-news-title">
                                     <div class="top-news-subhead">
                                         <time datetime="2020-04-24">
-                                            {{pin.pub_date}} </time>
+                                            {{pin.pub_date|date:"d M Y"}} </time>
                                     </div>
                                     <h2>
-                                        <a href="{% url 'blog_app:article_detail' pk=pin.pk %}" class="read-srticle">{{pin.title}}</a>
+                                        <a href="{% url 'blog_app:article_detail' pk=pin.pk %}" class="read-article">{{pin.title}}</a>
                                     </h2>
                                 </div>
                             </header>
@@ -74,7 +77,7 @@
                                 <div class="top-news-byline">
                                     <div class="category-avatar">
                                         <a href="#" class="category-name">
-                                            <img src="{{pin.category.image.url}}" alt="curiosita category"
+                                            <img src="{{pin.category.image.url}}" alt="{{pin.category}} category"
                                                 class="avatar" height="80">
                                         </a>
                                     </div>
@@ -104,9 +107,13 @@
     <!-- ================== end Content ==================== -->
 
     <!-- ================== Footre ===================== -->
-    <footer class="footer">
-        <div>
-            &copy; 2020 Your Knowledge by Pasquale & Giovanni 📰
+    <footer id="footer" class="copyright">
+        <div class="theme-toggler">
+            <li class=""><a href="#footer"><i class="fas fa-moon"></i></a></li>
+        </div>
+        <p>&copy; 2020 Your Knowledge by Pasquale & Giovanni 📰</p>
+        <div class="up" id="up">
+            <i class="fas fa-chevron-up"></i>
         </div>
     </footer>
     <!-- ================== end Footer ================= -->
