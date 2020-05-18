@@ -24,7 +24,9 @@
     {% endif %}
 
     <hr>
+    {% if user.is_authenticated %}
     <a href="{% url 'blog_app:add_comment_to_article' pk=article.pk %}" class="btn btn-primary btn-comment">Add Comment</a>
+    {% endif %}
 
     <div class="container">
         {% for comment in article.comments.all %}
