@@ -18,4 +18,13 @@ $(document).ready(function () {
     $(this).toggleClass("active");
     $("body").toggleClass("dark");
   });
+
+  // $(document).ready(function () {
+  //   $("#myInput").on("keyup", function () {
+  //     var value = $(this).val().toLowerCase();
+  //     $("#newsDeck .post-data").filter(function () {
+  //       // $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+  //     });
+  //   });
+  // });
 });
