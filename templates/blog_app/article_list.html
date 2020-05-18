@@ -20,20 +20,19 @@
         <!-- ================== News Deck ======================== -->
         
         <div class="news-deck">
-            {% if latest_articles %}
-                {% for article in latest_articles %}
+            {% for article in article_list %}
                 <div class="card">
                     <div class="image-data">
                         <div class="background-image" style="  background: url({{article.image.url}}) no-repeat center; background-size: cover;"></div>
                         <div class="publication-details">
-                            <span class="date">{{article.pub_date}}</span>
+                            <span class="date">{{article.pub_date|date:"D M Y"}}</span>
                             <span class="time-reading">10 minuti di lettura</span>
                         </div>
                     </div>
                     <div class="post-data">
-                        <h3 class="title"><a href="{% url 'blog_app:read' article_id=article.id %}">{{article.title}}</a> </h3>
+                        <h3 class="title"><a href="{% url 'blog_app:article_detail' pk=article.pk %}">{{article.title}}</a> </h3>
                         <p class="description">
-                            {{article.summary}}
+                            {{article.content|truncatechars:200}}
                         </p>
                         <div class="category">
                             <h4>
@@ -42,10 +41,8 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-            {% else %}
-                <h1>No Articles Found</h1>
-            {% endif %}
+            {% endfor %}
+            
             
             
         </div>

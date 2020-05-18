@@ -135,4 +135,5 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-LOGIN_URL = 'first_app/login'
+LOGIN_URL = 'blog_app/login'
+LOGIN_REDIRECT_URL = '/'
