@@ -316,6 +316,7 @@ h3 {
   background-color: var(--white);
   box-shadow: 0 6px 10px 1px hsla(0, 0%, 0%, 0.2);
   margin-bottom: 3rem;
+  min-width: 100%;
 }
 
 .image-data {
@@ -748,7 +749,7 @@ footer {
   .card {
     flex-direction: row;
     max-width: 75rem;
-    min-width: 100%;
+
     min-height: 20rem;
   }
 
