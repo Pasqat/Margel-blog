@@ -2,121 +2,127 @@
 {% load static %}
 <html lang="it">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Margel Blog</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Margel Blog</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-    <!-- JQUERY -->
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- JQUERY -->
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Font Awesome -->
-    <script defer src="https://kit.fontawesome.com/05680d0362.js" crossorigin="anonymous"></script>
+        <!-- Font Awesome -->
+        <script defer src="https://kit.fontawesome.com/05680d0362.js" crossorigin="anonymous"></script>
 
-    <!-- Custom JavaScript -->
-    <script defer src="{% static 'js/script.js' %}"></script>
+        <!-- Custom JavaScript -->
+        <script defer src="{% static 'js/script.js' %}"></script>
 
-    <!-- MEDIUM EDITOR -->
-    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
-</head>
+        <!-- MEDIUM EDITOR -->
+        <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+            type="text/css" media="screen" charset="utf-8" />
+    </head>
 
-<body class="light">
-    <header>
-        <!-- =================== NavBar ===================== -->
-        {% block navbar %}
-        <nav class="navbar">
-            <a href="{%url 'blog_app:article_list'%}" class="navbar-brand">Margel Blog</a>
+    <body class="light">
+        <header>
+            <!-- =================== NavBar ===================== -->
+            {% block navbar %}
+            <nav class="navbar">
+                <a href="{%url 'blog_app:article_list'%}" class="navbar-brand">Margel Blog</a>
 
-            <div class="navbar-toggler ">
-                <div class="bar start"></div>
-                <div class="bar middle"></div>
-                <div class="bar end"></div>
-            </div>
+                <div class="navbar-toggler">
+                    <div class="bar start"></div>
+                    <div class="bar middle"></div>
+                    <div class="bar end"></div>
+                </div>
 
-            <ul class="navbar-nav ">
-
-                {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_app:article_new' %}">New Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_app:article_draft_list' %}">Drafts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog_app:article_new' %}">New Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog_app:article_draft_list' %}">Drafts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    </li>
                     <li class="nav-item">Welcome: {{user.username}}</li>
-                {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-            </ul>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endblock %}
+            <!-- =============== end Navbar ==================== -->
+        </header>
 
-        </nav>
-        {% endblock %}
-        <!-- =============== end Navbar ==================== -->
-    </header>
-
-    <div class="container">
-        <!-- ================== Main ======================== -->
-        <div class="wrapper">
-
-            <!-- ======================= Top News ================== -->
-            {% block topnews %}
-            {% if pin_articles %}
+        <div class="container">
+            <!-- ================== Main ======================== -->
+            <div class="wrapper">
+                <!-- ======================= Top News ================== -->
+                {% block topnews %}
+                {% if pin_articles %}
                 <div class="top-news-container">
                     {% for pin in pin_articles %}
-                        <article class="top-news">
-                            <header class="top-news-header">
-                                <div class="top-news-title">
-                                    <div class="top-news-subhead">
-                                        <time datetime="2020-04-24">
-                                            {{pin.pub_date|date:"d M Y"}} </time>
-                                    </div>
-                                    <h2>
-                                        <a href="{% url 'blog_app:article_detail' pk=pin.pk %}" class="read-article">{{pin.title}}</a>
-                                    </h2>
+                    <article class="top-news">
+                        <header class="top-news-header">
+                            <div class="top-news-title">
+                                <div class="top-news-subhead">
+                                    <time datetime="2020-04-24">
+                                        {{pin.pub_date|date:"d M Y"}}
+                                    </time>
                                 </div>
-                            </header>
-                            <div class="top-news-meta">
-                                <div class="top-news-byline">
-                                    <div class="category-avatar">
-                                        <a href="#" class="category-name">
-                                            <img src="{{pin.category.image.url}}" alt="{{pin.category}} category"
-                                                class="avatar" height="80">
-                                        </a>
-                                    </div>
-                                    <div class="category-name-area">
-                                        <a href="#" class="category-name">{{pin.category}}</a>
-                                    </div>
+                                <h2>
+                                    <a href="{% url 'blog_app:article_detail' pk=pin.pk %}"
+                                        class="read-article">{{pin.title}}</a>
+                                </h2>
+                            </div>
+                        </header>
+                        <div class="top-news-meta">
+                            <div class="top-news-byline">
+                                <div class="category-avatar">
+                                    <a href="#" class="category-name">
+                                        <img src="{{pin.category.image.url}}" alt="{{pin.category}} category"
+                                            class="avatar" height="80" />
+                                    </a>
+                                </div>
+                                <div class="category-name-area">
+                                    <a href="#" class="category-name">{{pin.category}}</a>
                                 </div>
                             </div>
-                        </article>
+                        </div>
+                    </article>
                     {% endfor %}
                 </div>
-            {% endif %}
-            {% endblock %}
-            {% block main_content %}
-            
-            {% endblock %}
-            <!-- ================== end Main =================== -->
+                {% endif %}
+                {% endblock %}
 
+                {% block main_content %}
+
+                {% endblock %}
+                <!-- ================== end Main =================== -->
+            </div>
+
+            <!-- ===============end Wrapper ====================== -->
         </div>
+        <!-- ================== end Content ==================== -->
 
-
-
-
-        <!-- ===============end Wrapper ====================== -->
-
-    </div>
-    <!-- ================== end Content ==================== -->
-
-    <!-- ================== Footre ===================== -->
-    <footer id="footer" class="copyright">
-        <div class="theme-toggler">
-            <li class=""><a href="#footer"><i class="fas fa-moon"></i></a></li>
-        </div>
-        <p>&copy; 2020 Your Knowledge by Pasquale & Giovanni 📰</p>
-        <div class="up" id="up">
-            <i class="fas fa-chevron-up"></i>
-        </div>
-    </footer>
-    <!-- ================== end Footer ================= -->
-</body>
+        <!-- ================== Footre ===================== -->
+        <footer id="footer" class="copyright">
+            <div class="theme-toggler">
+                <li class="">
+                    <a href="#footer"><i class="fas fa-moon"></i></a>
+                </li>
+            </div>
+            <p>&copy; 2020 Your Knowledge by Pasquale & Giovanni 📰</p>
+            <div class="up" id="up">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </footer>
+        <!-- ================== end Footer ================= -->
+    </body>
 
 </html>

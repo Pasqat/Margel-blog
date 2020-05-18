@@ -1,13 +1,15 @@
 {% extends 'blog_app/base.html' %}
 
 {% block main_content %}
-
-{% for article in articles %}
+<h1>Drafts to confirm</h1>
+<br/><hr>
+{% for article in article_list %}
 <div class="post">
     <p class="date">created: {{ article.create_date|date:'d-mY'}}</p>
-    <h1><a href="{% url 'article_detail' pk=article.pk %}">{{article.title}}</a></h1>
-    <p>{{article.content|truncatechars:200}}</p>
+    <h1><a href="{% url 'blog_app:article_detail' pk=article.pk %}">{{article.title}}</a></h1>
+    <!--<p>{{article.content|safe|truncatechars:200}}</p>-->
 </div>
+<hr>
 {% endfor %}
 
 {% endblock %}

@@ -103,6 +103,7 @@ h4,
 h5,
 h6 {
   font-family: "DM Mono", monospace;
+  color: var(--text);
 }
 
 h2 {

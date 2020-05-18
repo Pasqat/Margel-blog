@@ -43,8 +43,9 @@ class ArticleDeleteView(DeleteView):
 
 class DraftListView(LoginRequiredMixin, ListView):
     login_url = '/login/'
-    redirect_field_name = 'blog/article_list' # ! vedere se si può mettere solo il namespace 'article_list'
+    redirect_field_name = 'blog_app/article_drafts_list.html'
     model = Article
+    template_name = 'blog_app/article_drafts_list.html'
 
     def get_queryset(self):
         return Article.objects.filter(pub_date__isnull=True).order_by('create_date')
