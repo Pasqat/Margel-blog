@@ -315,6 +315,7 @@ h3 {
   flex-direction: column;
   background-color: var(--white);
   box-shadow: 0 6px 10px 1px hsla(0, 0%, 0%, 0.2);
+  margin-bottom: 3rem;
 }
 
 .image-data {
@@ -747,6 +748,8 @@ footer {
   .card {
     flex-direction: row;
     max-width: 75rem;
+    min-width: 100%;
+    min-height: 20rem;
   }
 
   .image-data {
@@ -806,6 +809,7 @@ footer {
   }
 
   .sidebar {
+    width: 100%;
     padding: 1.6rem;
     margin-top: 2rem;
   }
@@ -846,8 +850,10 @@ footer {
   }
 
   .tags-section {
-    display: inline-flex;
+    display: flex;
     padding: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
   .tag {
