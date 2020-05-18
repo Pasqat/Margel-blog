@@ -3,7 +3,7 @@
 {% block main_content %}
 <div class="main">
 <h1>New Article</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {{form.as_p}}
     {%csrf_token%}
     <input type="submit" value="Submit">
