@@ -3,6 +3,7 @@
 {% block main_content %}
     <div class="wrapper article-form"> <!--TODO si somma al div wrapper in base, correggere?-->
         <form method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
             <div class="reading-container">
                 {{ form.non_field_errors }}
                 <div class="header">
@@ -24,13 +25,13 @@
                 <div class="form-l-i">
                     {{form.content.errors}}
                     <label for="{{form.content.id_for_label}}">Content:</label>
-                    <div class="editable medium-editor-element medium-editor-placeholder"
+                    <!--<div class="editable medium-editor-element medium-editor-placeholder"
                         id="medium-editor-1589876169249" name="content" cols="40" rows="80" required=""
                         medium-editor-textarea-id="medium-editor-1589876169249" contenteditable="true"
                         spellcheck="true" data-medium-editor-element="true" role="textbox" aria-multiline="true"
                         data-medium-editor-editor-index="1"
                         medium-editor-index="1009285b-4207-b04f-b361-e3c0e2206edc"
-                        data-placeholder="Start writing..."></div>
+                        data-placeholder="Start writing..."></div>-->
                     {{form.content}}
 
                 </div>

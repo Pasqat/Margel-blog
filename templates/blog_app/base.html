@@ -49,6 +49,10 @@
                     </li>
                     <li class="nav-item">Welcome: {{user.username}}</li>
                     {% else %}
+                    <!-- ===========================================================================
+                        TODO login non serve sulla barra di navigazione. chi agiunge gli articoli  =
+                             può direttamente inserire /login sulla barra degli indirizzi          =
+                    ============================================================================ -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
