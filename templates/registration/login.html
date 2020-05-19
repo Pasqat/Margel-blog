@@ -12,7 +12,7 @@
     <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn btn-primary" value="Login">
+        <input type="submit" class="btn btn-accent btn-large" value="Login">
         <!-- Il valore {{next}} viene mandato dalla funzione built-in di django login-->
         <input type="hidden" name="next" value="{{next}}">
     </form>

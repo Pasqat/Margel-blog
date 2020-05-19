@@ -1154,3 +1154,20 @@ footer {
   position: relative;
   text-align: center;
 }
+
+.jumbotron{
+  padding: 4rem;
+  font-style: "Montserrat";
+}
+
+.jumbotron h2 {
+  padding: 2rem 0;
+}
+
+.jumbotron form {
+  padding: 2rem 0;
+}
+
+.jumbotron form p {
+  padding-bottom: 1rem;
+}
