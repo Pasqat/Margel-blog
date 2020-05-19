@@ -13,6 +13,7 @@ urlpatterns =[
     path('article/<int:pk>/publish', views.article_publish, name='article_publish'),
     path('category/<category>/', views.CategoryListView.as_view(), name='category_list'),
     path('tag/<tag>/', views.TagListView.as_view(), name='tag_list'),
+    path('search/', views.search_article, name='search'),
     path('search/<search>/', views.ArticleSearchView.as_view(), name='search_article'),
     path('article/<int:pk>/comment/', views.add_comment_to_article, name='add_comment_to_article'),
     path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
