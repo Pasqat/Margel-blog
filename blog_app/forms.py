@@ -7,7 +7,7 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ('author', 'title', 'content', 'image', 'category', 'tag', 'pin')
         widgets = {
-            'content': forms.Textarea(attrs={'class':'editable medium-editor-hidden', 'medium-editor-textarea-id':'medium-editor-1589876169249'})
+            'content': forms.Textarea(attrs={'class':'editable', })
         }
 
 class CommentForm(forms.ModelForm):
