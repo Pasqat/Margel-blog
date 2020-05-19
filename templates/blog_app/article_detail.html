@@ -27,9 +27,9 @@
         {{article.pub_date|date:"D M Y"}}
       </time>
       {% else %}
-      <a class="" href="{% url 'blog_app:article_publish' pk=article.pk %}"
-        >Publish</a
-      >
+      <a class="btn btn-text-primary" href="{% url 'blog_app:article_publish' pk=article.pk %}">
+        Publish
+      </a>
       {% endif %}
       <!-- TODO Aggiungere tempo di lettura nel modello -->
       <span class="time-reading">&triangleright; 10 minuti di lettura</span>
@@ -47,15 +47,15 @@
     <!--TODO Fare gli stili per la zona modifica e commenti-->
     {% if user.is_authenticated %}
     <div class="content article-mod">
-      <a class="btn btn-primary-outline btn-small" href="{% url 'blog_app:article_edit' pk=article.pk %}" >Edit</a>
-      <a class="btn btn-warning btn-small" href="{% url 'blog_app:article_remove' pk=article.pk %}" >Remove</a>
+      <a class="btn btn-accent-text btn-small" href="{% url 'blog_app:article_edit' pk=article.pk %}" >Edit</a>
+      <a class="btn btn-warning-text btn-small" href="{% url 'blog_app:article_remove' pk=article.pk %}" >Remove</a>
     </div>
 
     {% endif %}
 
     
     {% if user.is_authenticated %}
-    <a href="{% url 'blog_app:add_comment_to_article' pk=article.pk %}" class="btn btn-primary btn-large">Add Comment</a>
+    <a href="{% url 'blog_app:add_comment_to_article' pk=article.pk %}" class="btn btn-accent btn-large">Add Comment</a>
     {% endif %}
   </div>
   <div class="content">
@@ -69,13 +69,14 @@
          {% if not comment.approved_comment %}
        
         <div class="content comment-edit">
-          <a class="btn btn-primary-outline btn-small" href="{% url 'blog_app:comment_approve' pk=comment.pk %}">Approve</a>
-          <a class="btn btn-warning btn-small" href="{% url 'blog_app:comment_remove' pk=comment.pk %}">Remove</a>
+          <a class="btn btn-accent-text btn-small" href="{% url 'blog_app:comment_approve' pk=comment.pk %}">Approve</a>
+          <a class="btn btn-warning-text btn-small" href="{% url 'blog_app:comment_remove' pk=comment.pk %}">Remove</a>
         </div>
         {% endif %}
         <div class="comment-cont-auth">
         <div class="comment-text" >
           {{comment.text|safe|linebreaks}}
+          
         </div>
         <div class="comment-author">
           <p> Posted By: {{comment.author}}</p>

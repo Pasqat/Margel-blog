@@ -1,10 +1,13 @@
 {% extends 'blog_app/base.html' %}
 
 {% block main_content %}
-<form method="POST">
+<div class="confirm-delete">
+    <form method="POST">
     {% csrf_token %}
-    <p>Are you sure uou want to delete {{object}}?</p>
-    <input type="submit" class="btn btn-danger" value="Confirm">
+    <h3 style="margin-bottom: 2em">Are you sure you want to delete {{object}}?</h3>
+    <input type="submit" class="btn btn-warning btn-large" value="Confirm">
 </form>
+</div>
+
 
 {% endblock %}

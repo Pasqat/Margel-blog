@@ -81,6 +81,9 @@ p {
 .container {
   min-height: 88.4vh;
   padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body.open {
@@ -122,21 +125,27 @@ h3 {
   border: none;
   cursor: pointer;
   color: #fff;
-  border-radius: 0.5em;
+
 }
 
-.btn-primary:hover {
+.btn-accent:hover {
   background: var(--azzurro3);
   box-shadow: none;
 }
 
-.btn-primary {
+.btn-accent {
   background: var(--accent);
+  border-radius: 0.5em;
+}
+
+.btn-primary {
+  background: var(--azzurro4);
 }
 
 .btn-warning {
   border: 2px solid #b62d2d;
   color: var(--text);
+  border-radius: 0.5em;
 }
 
 .btn-warning:hover {
@@ -144,12 +153,13 @@ h3 {
   color: #fff;
 }
 
-.btn-primary-outline {
+.btn-accent-outline {
   border: 2px solid var(--accent);
   color: var(--text);
+  border-radius: 0.5em;
 }
 
-.btn-primary-outline:hover {
+.btn-accent-outline:hover {
   background: var(--accent);
   border: 2px solid var(--accent);
   color: #fff;
@@ -163,6 +173,42 @@ h3 {
 .btn-large {
   font-size: 1.2rem;
   padding: 1em 1.5em;
+  border-radius: 0.5em;
+}
+
+.btn-text-primary{
+  padding-left: 6px;
+  background: var(--gradient-azzurro);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid var(--azzurro4);
+}
+
+.btn-text-primary:hover{
+background: var(--gradient-azzurro);
+color: #fff;
+-webkit-text-fill-color: initial;
+border: 1px solid var(--azzurro4);
+}
+
+.btn-accent-text{
+color: var(--accent);
+}
+
+.btn-accent-text:hover{
+  color: var(--azzurro4);
+}
+
+.btn-warning-text{
+  color: #b62d2d;
+}
+.btn-warning-text:hover{
+  /* color: #fff;
+  background: #b62d2d;
+  border-radius: 10px; */
+  color: var(--azzurro4);
 }
 
 .content {
@@ -205,7 +251,9 @@ h3 {
 
 /* * ----- TOP NEWS -------- */
 .wrapper {
+  display: block;
   padding: 10rem 0;
+  height: 100%;
 }
 
 .top-news-container {
@@ -437,6 +485,7 @@ h3 {
 
 .card .description {
   position: relative;
+  color: var(--text);
 }
 
 .card .description::first-letter {
@@ -490,7 +539,7 @@ h3 {
 /* * Article Reading */
 
 .reading-container {
-  margin: 6rem auto;
+  margin: 0 auto;
   display: block;
   padding: 2rem 2rem;
 }
@@ -997,7 +1046,7 @@ footer {
 }
 
 .sidebar.article-form {
-  margin: 6rem 0;
+  margin: 0;
   display: initial;
   grid-column: 1/2;
   width: 100%;
@@ -1086,4 +1135,11 @@ footer {
 .comment-author {
   font-weight: 500;
   font-size: 1.2rem;
+}
+
+.confirm-delete {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
 }
