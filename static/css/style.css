@@ -383,7 +383,18 @@ color: var(--accent);
 
 /* * ----- DECK ------------------ */
 .news-container .news-filter {
+  padding: 2em 0;
   margin-bottom: 2rem;
+
+}
+
+.news-filter > h1 {
+  font-style: 'Montserrat';
+}
+
+.news-filter  span {
+  text-transform: uppercase;
+  color: var(--text);
 }
 
 .news-container .news-filter ul {
@@ -924,7 +935,7 @@ footer {
   .sidebar {
     width: 100%;
     padding: 1.6rem;
-    margin-top: 2rem;
+    margin-top: 11rem;
   }
 
   .search-section {

@@ -44,7 +44,7 @@
     {{article.content|safe|linebreaksbr}}
   </div>
   <div class="content">
-    <!--TODO Fare gli stili per la zona modifica e commenti-->
+
     {% if user.is_authenticated %}
     <div class="content article-mod">
       <a class="btn btn-accent-text btn-small" href="{% url 'blog_app:article_edit' pk=article.pk %}" >Edit</a>
