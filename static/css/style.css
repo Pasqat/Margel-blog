@@ -35,11 +35,9 @@ font-family: 'Montserrat', sans-serif; */
   --azzurro4: #4975b4;
   --azzurro5: #b2c9f0;
   --accent: #f717ff;
-  --gradient-azzurro: linear-gradient(
-    200deg,
-    rgb(9, 15, 42),
-    rgba(23, 61, 83, 0.7)
-  );
+  --gradient-azzurro: linear-gradient(200deg,
+      rgb(9, 15, 42),
+      rgba(23, 61, 83, 0.7));
   --gradient-white: linear-gradient(200deg, #0e1a3b, #0e4270);
   --top-title: #a9caff;
   --top-title2: #a9caff;
@@ -162,7 +160,7 @@ h3 {
   padding-bottom: 3.2rem;
 }
 
-.top-news-container > .top-news {
+.top-news-container>.top-news {
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -189,20 +187,17 @@ h3 {
 .top-news-container .top-news:first-child .top-news-title h2 a {
   color: var(--top-title);
 }
+
 .top-news-container .top-news .top-news-title .top-news-subhead {
   text-align: right;
 }
 
-.top-news-container .top-news .top-news-title .top-news-subhead > time {
+.top-news-container .top-news .top-news-title .top-news-subhead>time {
   color: var(--azzurro);
   font-size: 1.2rem;
 }
 
-.top-news-container
-  .top-news:first-child
-  .top-news-title
-  .top-news-subhead
-  time {
+.top-news-container .top-news:first-child .top-news-title .top-news-subhead time {
   color: hsl(0, 0%, 51%);
 }
 
@@ -214,11 +209,7 @@ h3 {
   grid-template-rows: auto;
 }
 
-.top-news-container
-  .top-news
-  .top-news-meta
-  .top-news-byline
-  .category-name-area {
+.top-news-container .top-news .top-news-meta .top-news-byline .category-name-area {
   justify-self: start;
 }
 
@@ -245,12 +236,7 @@ h3 {
   margin-top: auto;
 }
 
-.top-news-container
-  .top-news
-  .top-news-meta
-  .top-news-byline
-  .category-avatar
-  img {
+.top-news-container .top-news .top-news-meta .top-news-byline .category-avatar img {
   border-radius: 50%;
   height: 40px;
   border: 2px solid var(--white);
@@ -488,6 +474,7 @@ h3 {
   opacity: 1;
   transition: opacity 500ms ease 0s;
 }
+
 /* end Article Reading */
 
 /* * ------ FOOTER ------------ */
@@ -587,13 +574,16 @@ footer {
   0% {
     box-shadow: 0 0 0 0 #0b3983fd;
   }
+
   70% {
     box-shadow: 0 0 0 2rem #0b398300;
   }
+
   100% {
     box-shadow: 0 0 0 0 #0b398300;
   }
 }
+
 /*End animations*/
 
 /* * ========= MEDIA QUERIES ============= */
@@ -717,10 +707,12 @@ footer {
   }
 }
 
+
 @media screen and (min-width: 769px) {
   .container {
     padding: 0 9rem;
   }
+
   .navbar {
     align-items: center;
     padding: 2rem 9rem;
@@ -739,6 +731,7 @@ footer {
   .navbar-nav .nav-link {
     padding-bottom: 1.8rem;
   }
+
   .navbar-nav .nav-link:hover {
     border-bottom: 3px solid var(--accent);
   }
@@ -874,5 +867,88 @@ footer {
 @media screen and (min-width: 1024px) {
   .reading-container {
     width: 60%;
+  }
+}
+
+
+/* ! Che casino sti CSS, ottimizzati zero */
+
+.wrapper.article-form {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 2em 0;
+  justify-items: center;
+}
+
+.wrapper.article-form label {
+  font-weight: 600;
+  border: none;
+  color: var(--text);
+}
+
+.form-l-i {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0;
+}
+
+.form-l-i>label {
+  margin-bottom: 1em;
+}
+
+.pin.form-l-i label {
+  margin-bottom: 0;
+}
+
+.form-l-i>select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--azzurro4);
+  color: var(--text);
+}
+
+.wrapper.article-form #id_title {
+  font-family: "DM Mono", monospace;
+  color: var(--text);
+  font-size: 2em;
+  background: transparent;
+  border: none;
+}
+
+.sidebar.article-form {
+  margin: 6rem 0;
+  display: initial;
+  grid-column: 1/2;
+
+}
+
+.wrapper.article-form input[type="submit"] {
+  padding: 1em 1.5em;
+  font-family: "Montserrat";
+  font-weight: 600;
+  letter-spacing: .1em;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  border-radius: .5em;
+}
+
+.wrapper.article-form input[type="submit"]:hover {
+  background: var(--azzurro3);
+  box-shadow: none;
+}
+
+.pin {
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .sidebar.article-form {
+    grid-column: 2;
+    width: 60%;
+    justify-self: end;
   }
 }

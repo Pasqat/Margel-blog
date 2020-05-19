@@ -74,7 +74,7 @@
     {% if user.is_authenticated or comment.approved_comment %}
     {{comment.create_date}} {% if not comment.approved_comment %}
     <a
-      class="btn btn-default"
+      class="btn btn-warning"
       href="{% url 'blog_app:comment_remove' pk=comment.pk %}"
       >Remove</a
     >

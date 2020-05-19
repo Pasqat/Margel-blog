@@ -13,8 +13,13 @@
         <!-- Font Awesome -->
         <script defer src="https://kit.fontawesome.com/05680d0362.js" crossorigin="anonymous"></script>
 
+
         <!-- Custom JavaScript -->
         <script defer src="../static/js/script.js"></script>
+
+        <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+            type="text/css" media="screen" charset="utf-8">
     </head>
 
     <body class="light">
@@ -51,44 +56,90 @@
 
         <div class="container">
 
-            <div class="wrapper">
+            <div class="wrapper article-form">
 
                 <div class="reading-container">
-                    <div class="header-reading">
-                        <div class="title">
-                            <!-- ! qui il titolo dell'articolo -->
-                            <h1>Alerus Financial Corporation declares $0.15 dividend</h1>
+                    <div class="header">
+                        <div class="form-l-i">
+                            <label for="id_title">Titolo:</label>
+                            <input type="text" name="title" maxlength="100" required="" id="id_title"
+                                placeholder="New Title">
+                            <!-- TODO Stilizza il label come fosse h1 e cancella h1-->
+                            <!-- <h1>Alerus Financial Corporation declares $0.15 dividend</h1> -->
                         </div>
-                        <div class="sub-header">
-                            <div class="category-avatar">
-                                <!-- ! l'avatar della categoria non serve, sostituire con nuova categoria?-->
-                                <a href="#" class="category-name">
-                                    <img src="../static/images/curiosita_category.png" alt="curiosita category"
-                                        class="avatar"> </a> </div>
-                            <div class="category-name-area">
-                                <!-- ! qui scegli la categoria -->
-                                <a href="#" class="category-name">Curiosità</a>
-                            </div>
-                        </div>
-                        <div class="sub-header-date">
-                            <!-- ! qui va la data -->
+
+                        <div class="sub-header-date form-l-i">
+                            <!-- ? è stata tolta la scelta della data? -->
                             <time datetime="2020-04-24">
                                 11 Mag 2020 </time>
-                            <span class="time-reading">&triangleright; 10 minuti di lettura</span>
+                            <span class="time-reading">&triangleright; -</span>
                         </div>
                     </div>
-                    <div class="image-reading">
-                        <!-- ! qui va l'immagine -->
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1404&q=80"
-                            alt="">
-                    </div>
-                    <div class="content">
-                        <!--  ! qui va il contenuto dell'articolo -->
+
+                    <div class="form-l-i">
+                        <label for="id_content">Contenuto:</label>
+                        <div class="editable medium-editor-element medium-editor-placeholder"
+                            id="medium-editor-1589876169249" name="content" cols="40" rows="80" required=""
+                            medium-editor-textarea-id="medium-editor-1589876169249" contenteditable="true"
+                            spellcheck="true" data-medium-editor-element="true" role="textbox" aria-multiline="true"
+                            data-medium-editor-editor-index="1"
+                            medium-editor-index="1009285b-4207-b04f-b361-e3c0e2206edc"
+                            data-placeholder="Inizia a scrivere..."></div>
+                        <textarea name="content" cols="40" rows="80" class="editable medium-editor-hidden" required=""
+                            id="id_content" medium-editor-textarea-id="medium-editor-1589876169249"></textarea>
+
                     </div>
 
 
                 </div>
 
+                <!-- ====== Sidebar ==================-->
+                <div class="sidebar article-form">
+                    <div class="form-l-i">
+                        <label for="id_image">Image:</label>
+                        <input type="file" name="image" accept="image/*" id="id_image">
+                    </div>
+                    <div class="sub-header">
+                        <div class="form-l-i">
+                            <!-- ! l'avatar della categoria non serve, sostituire con nuova categoria?-->
+                            <label for="id_author">Autore:</label>
+                            <select name="author" required="" id="id_author">
+                                <option value="" selected="">---------</option>
+                                <option value="1">gianni</option>
+                                <option value="2">pasqat</option>
+                            </select>
+                        </div>
+                        <div class="form-l-i">
+
+                            <label for="id_category">Categoria:</label>
+
+                            <!-- <a href="#" class="category-name">Curiosità</a> -->
+                            <select name="category" id="id_category">
+                                <option value="" selected="">---------</option>
+
+                                <option value="1">pippo</option>
+
+                                <option value="2">booo</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tag form-l-i">
+                        <label for="id_tag">Tag:</label>
+                        <select name="tag" required="" id="id_tag" multiple="">
+                            <option value="1">Fesserie</option>
+                          
+                            <option value="2">Cose Inutili</option>
+                          
+                          </select>
+                    </div>
+                    <div class="pin form-l-i">
+                        <label for="id_pin">Pin:</label>
+                        <input type="checkbox" name="pin" id="id_pin">
+                        <span class="checkmark"></span>
+                    </div>
+                    <input type="submit" value="Crea Bozza">
+                </div>
 
 
 
