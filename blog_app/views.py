@@ -1,6 +1,7 @@
-from django.shortcuts import HttpResponse, get_object_or_404, render, get_list_or_404, redirect
+from django.shortcuts import HttpResponse, get_object_or_404, render, get_list_or_404, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils import timezone
+from django import forms
 from django.db.models import Q
 from .models import Article, Comment, Category, Tag
 from .forms import ArticleForm, CommentForm
@@ -24,6 +25,17 @@ class ArticleListView(ListView):
 
     def get_queryset(self):
         return Article.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+
+def search_article(request):
+    print(request)
+    if request.method == 'POST':
+        print(request.POST['search'])
+        search =forms.CharField(max_length=100)
+        value = search.clean(request.POST['search'])
+        # TODO gestione errori per la validazione
+        return redirect('blog_app:search_article', search=value)
+    else:
+        return redirect('index')
 
 class ArticleSearchView(ListView):
     model=Article
