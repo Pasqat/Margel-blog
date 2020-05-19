@@ -7,6 +7,7 @@
     <!-- ======================= end Top News ================== -->
     <div class="news-container">
         <div class="news-filter">
+            <!--TODO per ora li nascondo 
             <ul>
                 <li>
                     <a href="#" class="filter">Recenti</a>
@@ -14,7 +15,17 @@
                 <li>
                     <a href="#" class="filter">Popolari</a>
                 </li>
-            </ul>
+            </ul>-->
+            <!--TODO mettergli uno stile-->
+            {% if category %}
+            <h1> Post in category : {{category}}</h1>
+            {%endif%}
+            {% if tag %}
+            <h1>Post with tag: {{tag}}</h1>
+            {% endif %}
+            {% if search %}
+            <h1>Search results for: {{search}}</h1>
+            {%endif%}
         </div>
 
         <!-- ================== News Deck ======================== -->
@@ -31,12 +42,12 @@
                     </div>
                     <div class="post-data">
                         <h3 class="title"><a href="{% url 'blog_app:article_detail' pk=article.pk %}">{{article.title}}</a> </h3>
-                        <p class="description">
+                        <div class="description">
                             {{article.content|safe|truncatechars:200}}
-                        </p>
+                        </div>
                         <div class="category">
                             <h4>
-                                <a href=#"">{{article.category}}</a>
+                                <a href="{% url 'blog_app:category_list' article.category.cat_name %}">{{article.category}}</a>
                             </h4>
                         </div>
                     </div>
@@ -54,27 +65,39 @@
             <h4>Ricerca</h4>
         </div>
         <div class="search-section">
-            <form action="">
+            <form method="GET" name='form' action="">
                 <div class="searchIcon">
                     <!-- <i class="fas fa-search"></i> -->
                     <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
                         clip-rule="evenodd">
                         <path
                             d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
-                    </svg>
+                    <input type="submit">
+                </svg>
                 </div>
                 <input type="text" name="search" value="" placeholder="Cerca..." id="myInput">
                 <!-- <input type="submit" value="Vai"> -->
             </form>
         </div>
         <div class="sidebar-title">
+            <h4>Categories</h4>
+        </div>
+        <div class="tags-section">
+            {% if categories %}
+                {% for cat in categories %}
+                <div class="tag"><a href="{% url 'blog_app:category_list' cat.cat_name %}">{{cat.cat_name}}</a></div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="sidebar-title">
             <h4>Tags</h4>
         </div>
-        <!-- TODO Tag in automatico-->
         <div class="tags-section">
-            <div class="tag"><a href="#">Dividend</a></div>
-            <div class="tag"><a href="#">Buffet</a></div>
-            <div class="tag"><a href="#">Valuation</a></div>
+            {% if tags %}
+                {% for tag in tags %}
+                <div class="tag"><a href="{% url 'blog_app:tag_list' tag.tag_name %}">{{tag.tag_name}}</a></div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
     <!-- ================== end Sidebar ================ -->

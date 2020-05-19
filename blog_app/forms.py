@@ -7,7 +7,8 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ('author', 'title', 'content', 'image', 'category', 'tag', 'pin')
         widgets = {
-            'content': forms.Textarea(attrs={'class':'editable', })
+            'content': forms.Textarea(attrs={'class':'editable', 'placeholder':'Start Writing...' },),
+            'title': forms.TextInput(attrs={'placeholder':'Insert Title here...'},)
         }
 
 class CommentForm(forms.ModelForm):

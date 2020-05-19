@@ -1,7 +1,8 @@
 from django.shortcuts import HttpResponse, get_object_or_404, render, get_list_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
-from .models import Article, Comment
+from django.db.models import Q
+from .models import Article, Comment, Category, Tag
 from .forms import ArticleForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -17,10 +18,57 @@ class ArticleListView(ListView):
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
         context['pin_articles'] = get_list_or_404(Article, pin=True, pub_date__isnull=False)
+        context['categories'] = get_list_or_404(Category)
+        context['tags'] = get_list_or_404(Tag)
         return context
 
     def get_queryset(self):
         return Article.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+
+class ArticleSearchView(ListView):
+    model=Article
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['pin_articles'] = get_list_or_404(Article, pin=True, pub_date__isnull=False)
+        context['categories'] = get_list_or_404(Category)
+        context['tags'] = get_list_or_404(Tag)
+        context['search'] = self.kwargs['search']
+        return context
+    
+    def get_queryset(self):
+        return Article.objects.filter(Q(title__icontains=self.kwargs['search'])|Q(content__icontains=self.kwargs['search'])).order_by('-pub_date')
+
+
+class CategoryListView(ListView):
+    template_name = 'blog_app/article_list.html'
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pin_articles'] = get_list_or_404(Article, pin=True, pub_date__isnull=False)
+        context['category'] = self.category
+        context['categories'] = get_list_or_404(Category)
+        context['tags'] = get_list_or_404(Tag)
+        return context
+
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, cat_name=self.kwargs['category'])
+        return Article.objects.filter(category=self.category).order_by('-pub_date')
+
+class TagListView(ListView):
+    template_name = 'blog_app/article_list.html'
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pin_articles'] = get_list_or_404(Article, pin=True, pub_date__isnull=False)
+        context['tag'] = self.tag
+        context['categories'] = get_list_or_404(Category)
+        context['tags'] = get_list_or_404(Tag)
+        return context
+
+    def get_queryset(self):
+        self.tag = get_object_or_404(Tag, tag_name=self.kwargs['tag'])
+        return Article.objects.filter(tag=self.tag).order_by('-pub_date')
 
 class ArticleDetailView(DetailView):
     model = Article

@@ -1,7 +1,8 @@
 {% extends 'blog_app/base.html' %}
 
 {% block main_content %}
-    <div class="wrapper article-form"> <!--TODO si somma al div wrapper in base, correggere?-->
+    <div class="article-form">
+        <h1>New article</h1>
         <form method="POST" enctype="multipart/form-data">
             {%csrf_token%}
             <div class="reading-container">
@@ -11,14 +12,6 @@
                         {{form.title.errors}}
                         <label for="{{form.title.id_for_label}}">Title:</label>
                         {{form.title}}
-                    </div>
-                    
-                    <!--TODO la data non è editabile io lo toglierei questo campo-->
-                    <div class="sub-header-date form-l-i">
-                        <!-- ? è stata tolta la scelta della data? -->
-                        <time datetime="2020-04-24">
-                            11 Mag 2020 </time>
-                        <span class="time-reading">&triangleright; -</span>
                     </div>
                 </div>
 
@@ -69,9 +62,9 @@
                     {{form.pin}}
                     <span class="checkmark"></span>
                 </div>
-               
+               <input class="btn btn-primary btn-large" type="submit" value="Create Draft" /> <!-- percbè uil resto del sito è in inglese, gay --> 
             </div>
-            <input type="submit" value="Create Draft">
+            
         </form>
     </div>
 <script>var editor = new MediumEditor('.editable');</script>
